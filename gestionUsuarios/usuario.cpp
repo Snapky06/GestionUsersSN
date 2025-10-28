@@ -1,3 +1,6 @@
 #include "usuario.h"
 
-Usuario::Usuario(string nombre, int id) {}
+Usuario::Usuario(std::string tipo, std::string nombre, int id) {}
+
+void mostrarInfo();
+int validId();

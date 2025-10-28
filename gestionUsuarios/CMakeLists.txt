@@ -8,6 +8,7 @@ qt_standard_project_setup()
 qt_add_executable(gestionUsuarios
     main.cpp
     usuario.h usuario.cpp
+    estudiante.h estudiante.cpp
 )
 
 target_link_libraries(gestionUsuarios
