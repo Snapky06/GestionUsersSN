@@ -9,11 +9,14 @@ private:
 public:
     std::string tipo;
     bool bloqueado = false;
+
     Usuario(std::string nombre, int id);
+    virtual ~Usuario(){}
+
+    virtual void mostrarInfo()=0;
+
     std::string getNombre();
     int getId();
-protected:
-    virtual void mostrarInfo();
 
 };
 

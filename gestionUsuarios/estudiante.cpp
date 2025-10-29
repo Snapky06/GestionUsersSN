@@ -3,11 +3,13 @@
 
 Estudiante::Estudiante(std::string nombre, int id):Usuario (nombre,id){
     this->tipo="Estudiante";
+    this->creditosAcumulados = 5;
+    this->calificado = false;
 }
 
 void Estudiante::mostrarInfo(){
-     std::cout <<"Es El Estudiante "<< Usuario::getNombre() << " : " << Usuario::getId() << "Creditos Acumulados : "
-        <<creditosAcumulados << std::endl;
+     std::cout <<"Estudiante "<< Usuario::getNombre() << "| ID : " << Usuario::getId() << " | Creditos Acumulados : "
+              <<this->creditosAcumulados << " | Bloqueado : " << std::boolalpha << this->bloqueado << "\n" << std::endl;
 }
 
 
@@ -17,6 +19,7 @@ int Estudiante::matricularCurso(int creditosAcumulados){
         return -1;
     }else{
         std::cout<<"Clase Matriculada Exitosamente "<< Usuario::getNombre() <<std::endl;
-        return creditosAcumulados--;
+        this->creditosAcumulados = creditosAcumulados-1;
+        return this->creditosAcumulados;
     }
 };

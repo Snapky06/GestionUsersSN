@@ -6,7 +6,7 @@
 class Administrador:public Usuario
 {
 public:
-    int nivelDePermisos = 3;
+    int nivelDePermisos;
     Administrador(std::string nombre, int id);
     void mostrarInfo() override;
     void bloquearUsuario(std::vector<Usuario*>usuarios ,std::string nombre);
