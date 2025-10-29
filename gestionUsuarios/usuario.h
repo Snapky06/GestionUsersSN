@@ -4,11 +4,16 @@
 class Usuario
 {
 public:
+    std::string nombre;
+    int id;
     Usuario(std::string tipo, std::string nombre, int id);
 
 protected:
+    std::string tipo;
+
+
     virtual void mostrarInfo();
-    virtual int validId();
+    virtual int getId();
 };
 
 #endif // USUARIO_H

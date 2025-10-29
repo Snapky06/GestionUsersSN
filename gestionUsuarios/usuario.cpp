@@ -3,4 +3,4 @@
 Usuario::Usuario(std::string tipo, std::string nombre, int id) {}
 
 void mostrarInfo();
-int validId();
+int getId();
