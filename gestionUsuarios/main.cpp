@@ -117,22 +117,43 @@ int main(int argc, char *argv[])
                 }
                 break;
 
-            case 2 :
-                std::cout << "La Tarea De Quien Quiere Revisar" << std::endl;
-                std::cout << "\n" ;
-                for(int i = 0 ; i < usuarios.size() ; i++){
-                    if(usuarios[i]->tipo=="Estudiante"){
-                        usuarios[i]->mostrarInfo();
+            case 2: {
+                std::cout << "Que Docente Es?\n\n";
+                for (int i = 0; i < (int)usuarios.size(); ++i) {
+                    if (usuarios[i]->tipo == "Docente") usuarios[i]->mostrarInfo();
+                }
+
+                std::string nombreDoc;
+                std::cout << "Nombre : ";
+                std::cin >> nombreDoc;
+                std::cout << "\n";
+
+                Docente* e = nullptr;
+                for (int i = 0; i < (int)usuarios.size(); ++i) {
+                    Docente* d = dynamic_cast<Docente*>(usuarios[i]);
+                    if (d != nullptr && d->getNombre() == nombreDoc) {
+                        e = d;
+                        break;
                     }
                 }
-                std::cin >> nombre;
-                for(int i = 0 ; i < usuarios.size() ; i++){
-                    if(usuarios[i]->getNombre()==nombre){
-                        Docente* e = dynamic_cast<Docente*>(usuarios[i]);
-                        e->calificarTarea(usuarios,nombre);
-                    }
+                if (e == nullptr) {
+                    std::cout << "No se encontro ese Docente.\n";
+                    break;
                 }
+
+                std::cout << "Que Estudiante Quiere Calificar\n\n";
+                for (int i = 0; i < (int)usuarios.size(); ++i) {
+                    if (usuarios[i]->tipo == "Estudiante") usuarios[i]->mostrarInfo();
+                }
+
+                std::string tmpnombre;
+                std::cout << "Nombre : ";
+                std::cin >> tmpnombre;
+                std::cout << "\n";
+
+                e->calificarTarea(usuarios, tmpnombre);
                 break;
+            }
 
             case 3:
                 std::cout << "A Quien Desea Bloquear" << std::endl;
@@ -142,7 +163,10 @@ int main(int argc, char *argv[])
                         usuarios[i]->mostrarInfo();
                     }
                 }
+                std::cout << "Nombre : ";
                 std::cin >> nombre;
+                std::cout << "\n";
+
                 for(int i = 0 ; i < usuarios.size() ; i++){
                     if(usuarios[i]->getNombre()==nombre){
                         Administrador* e = dynamic_cast<Administrador*>(usuarios[i]);
@@ -168,6 +192,7 @@ int main(int argc, char *argv[])
         }
 
     }
+
     std::cout << "Borrando Memoria" << std::endl;
     for (int var = 0; var < usuarios.size(); ++var) {
         delete usuarios[var];

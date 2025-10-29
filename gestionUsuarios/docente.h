@@ -9,7 +9,7 @@ public:
     int tareasCalificadas;
     Docente(std::string nombre, int id);
     void mostrarInfo() override;
-    void calificarTarea(std::vector<Usuario*> usuarios , std::string nombre);
+    int calificarTarea(std::vector<Usuario*> usuarios , std::string nombre);
 
 };
 

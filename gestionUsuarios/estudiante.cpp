@@ -9,7 +9,8 @@ Estudiante::Estudiante(std::string nombre, int id):Usuario (nombre,id){
 
 void Estudiante::mostrarInfo(){
      std::cout <<"Estudiante "<< Usuario::getNombre() << "| ID : " << Usuario::getId() << " | Creditos Acumulados : "
-              <<this->creditosAcumulados << " | Bloqueado : " << std::boolalpha << this->bloqueado << "\n" << std::endl;
+              <<this->creditosAcumulados << " | Calificado: " << (this->calificado ? "Si" : "No") << " | Bloqueado : "
+              << std::boolalpha <<  this->bloqueado << "\n" << std::endl;
 }
 
 
