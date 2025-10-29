@@ -1,26 +1,22 @@
 #include "estudiante.h"
 #include <iostream>
-Estudiante::Estudiante(std::string tipo, std::string nombre, int id):Usuario (tipo,nombre,id){
-    this->tipo = "Estudiante";
-    this->creditosAcumulados=5;
-    this->calificado = false;
-    id++;
+
+Estudiante::Estudiante(std::string nombre, int id):Usuario (nombre,id){
+    this->tipo="Estudiante";
 }
 
 void Estudiante::mostrarInfo(){
-     std::cout << this->tipo << this->nombre << this->getId() << std::endl;
+     std::cout <<"Es El Estudiante "<< Usuario::getNombre() << " : " << Usuario::getId() << "Creditos Acumulados : "
+        <<creditosAcumulados << std::endl;
 }
 
-int Estudiante::getId(){
-    return this->id;
-};
 
 int Estudiante::matricularCurso(int creditosAcumulados){
     if(creditosAcumulados==0){
         std::cout<<"Creditos Insuficientes"<<std::endl;
         return -1;
     }else{
-        std::cout<<"Clase Matriculada Exitosamente "<<this->nombre<<std::endl;
+        std::cout<<"Clase Matriculada Exitosamente "<< Usuario::getNombre() <<std::endl;
         return creditosAcumulados--;
     }
 };

@@ -1,6 +1,17 @@
 #include "usuario.h"
 
-Usuario::Usuario(std::string tipo, std::string nombre, int id) {}
+Usuario::Usuario(std::string nombre, int id)
+{
+    this->nombre=nombre;
+    this->id=id;
+}
 
 void mostrarInfo();
-int getId();
+
+std::string Usuario::getNombre(){
+    return this->nombre;
+}
+int Usuario::getId(){
+    return this->id;
+}
+

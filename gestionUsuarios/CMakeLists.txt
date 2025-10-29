@@ -10,6 +10,7 @@ qt_add_executable(gestionUsuarios
     usuario.h usuario.cpp
     estudiante.h estudiante.cpp
     docente.h docente.cpp
+    administrador.h administrador.cpp
 )
 
 target_link_libraries(gestionUsuarios

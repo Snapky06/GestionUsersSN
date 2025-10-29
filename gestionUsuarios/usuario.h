@@ -3,18 +3,18 @@
 #include <string>
 class Usuario
 {
-public:
+private:
     std::string nombre;
     int id=0;
-
-    Usuario(std::string tipo, std::string nombre, int id);
-
-protected:
+public:
     std::string tipo;
-
-
+    bool bloqueado = false;
+    Usuario(std::string nombre, int id);
+    std::string getNombre();
+    int getId();
+protected:
     virtual void mostrarInfo();
-    virtual int getId();
+
 };
 
 #endif // USUARIO_H
