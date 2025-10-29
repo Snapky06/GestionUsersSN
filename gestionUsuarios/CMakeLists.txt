@@ -9,6 +9,7 @@ qt_add_executable(gestionUsuarios
     main.cpp
     usuario.h usuario.cpp
     estudiante.h estudiante.cpp
+    docente.h docente.cpp
 )
 
 target_link_libraries(gestionUsuarios

@@ -3,6 +3,8 @@
 Estudiante::Estudiante(std::string tipo, std::string nombre, int id):Usuario (tipo,nombre,id){
     this->tipo = "Estudiante";
     this->creditosAcumulados=5;
+    this->calificado = false;
+    id++;
 }
 
 void Estudiante::mostrarInfo(){
@@ -13,11 +15,12 @@ int Estudiante::getId(){
     return this->id;
 };
 
-int matricularCurso(int creditosAcumulados){
+int Estudiante::matricularCurso(int creditosAcumulados){
     if(creditosAcumulados==0){
         std::cout<<"Creditos Insuficientes"<<std::endl;
         return -1;
     }else{
-        return creditosAcumulados - 1;
+        std::cout<<"Clase Matriculada Exitosamente "<<this->nombre<<std::endl;
+        return creditosAcumulados--;
     }
 };

@@ -5,7 +5,8 @@ class Usuario
 {
 public:
     std::string nombre;
-    int id;
+    int id=0;
+
     Usuario(std::string tipo, std::string nombre, int id);
 
 protected:
